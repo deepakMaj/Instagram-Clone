@@ -1,0 +1,66 @@
+<% content_for :title, @user.full_name + "(@" + @user.username + ")" %>
+<section data-controller="modal" class="pt-24 xl:px-20 lg:px-20 md:px-20 sm:px-4 flex justify-center items-center flex-col">
+  <div class="flex justify-center py-4 w-full">
+    <div class="mr-10">
+      <% if @user.url != nil %>
+        <%= image_tag @user.url, class: "rounded-full xl:w-40 lg:w-40 md:w-40 sm:w-20" %>
+      <% else %>
+        <%= image_tag @user.gravatar_url(size: 240), class: "rounded-full xl:w-40 lg:w-40 md:w-40 sm:w-20" %>
+      <% end %>
+    </div>
+    <div>
+      <div class="xl:flex lg:flex md:flex sm:block">
+        <p class="text-3xl text-gray-600 font-thin mr-6 xl:mt-0 lg:mt-0 md:mt-0 sm:mb-3"><%= @user.username %></p>
+        <%= link_to "Edit Profile", edit_user_registration_path, class: "border border-gray-300 px-3 py-1 w-auto sm:w-full h-8 rounded text-sm font-medium" %>
+      </div>
+      <div class="flex py-4 w-9/12 sm:w-full justify-between">
+        <span class="flex font-medium"><%= @user.posts.length %><p class="ml-1 text-gray-800 font-normal">posts</p></span>
+        <span class="flex font-medium">0<p class="ml-1 text-gray-800 font-normal">followers</p></span>
+        <span class="flex font-medium">0<p class="ml-1 text-gray-800 font-normal">following</p></span>
+      </div>
+      <div>
+        <p class="font-medium"><%= @user.full_name %></p>
+      </div>
+      <div class="w-52">
+        <p><%= @user.about %></p>
+      </div>
+    </div>
+  </div>
+  <div class="xl:max-w-5xl lg:max-w-3xl md:max-w-3xl sm:max-w-none w-full relative" id="posts">
+    <p data-action="click->modal#openModal" class="w-max py-1.5 mb-6">
+      <%= link_to new_user_post_path(@user), class: "px-3 py-1.5 rounded font-medium bg-blue-500 text-white", remote: true do %>
+        <i class="fa fa-plus mr-0.5"></i> Create post
+      <% end %>
+    </p>
+    <div class="border-t border-gray-200"></div>
+    <div class="my-3 xl:pr-0 lg:pr-0 md:pr-0 sm:pr-16 flex justify-center" id="postIcon">
+      <%= image_tag("grid.svg", class: "w-4 mr-1") %>
+      <p class="text-sm text-gray-800 font-medium">POSTS</p>
+    </div>
+    <div class="flex flex-wrap items-center mt-3">
+      <% if @user.posts.length == 0 %>
+        <h3 class="text-4xl text-center xl:ml-20 lg:ml-20 md:ml-20 sm:ml-0 mt-14 text-gray-700 font-light">No posts</h3>
+      <% else %>
+        <% if current_user.id == @user.id %>
+          <% @user.posts.each do |post| %>
+            <div class="postData xl:mr-8 lg:mr-6 md:mr-4 sm:mr-1 xl:mb-6 lg:mb-6 md:mb-6 sm:mb-1">
+              <%= link_to user_post_path(@user, post) do %>
+                <div class = "postImage xl:w-80 xl:h-80 lg:w-60 lg:h-60 md:w-48 md:h-48 sm:w-32 sm:h-32 relative">
+                  <%= image_tag post.post_url, alt: "", class: "w-full h-full object-cover" %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <h3 class="text-4xl text-center xl:ml-20 lg:ml-20 md:ml-20 sm:ml-0 mt-14 text-gray-700 font-light">Posts are hidden</h3>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+    
+  <div id="modal-open" class="fixed w-full h-full top-0 flex justify-center items-center overflow-hidden hidden">
+  </div>
+  
+  <%= render 'layouts/footer' %>
+
+</section>

@@ -1,0 +1,102 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+// Starter
+*:focus {
+  outline: 0 !important;
+}
+
+::-webkit-scrollbar{
+  width: 6px;
+}
+
+::-webkit-scrollbar-track{
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb, .turbolinks-progress-bar{
+  background: linear-gradient(#405DE6, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040,  #F77737, #FCAF45, #FFDC80);
+}
+
+textarea::-webkit-scrollbar-thumb{
+  background: rgb(158, 158, 158);
+  cursor: pointer;
+}
+
+// Sign-In & Sign-Up Section
+.mobile{
+  width: 38%;
+}
+
+.mobile-view{
+  left: 32.5%;
+  height: 71%;
+  width: 55%;
+  top: 4.7rem;
+}
+
+.mobile-view img{
+  min-width: 100%;
+  height: 100%;
+}
+
+// Posts
+
+.postData:nth-child(3n){
+  margin-right: 0;
+}
+
+.postImage::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+}
+
+.postImage img{
+  backdrop-filter: blur(1px);
+}
+
+// Media Queries
+@media(min-width: 1023px) and (max-width: 1339px){
+  .mobile{
+    width: 46%;
+  }
+
+  .mobile-view {
+    left: 32%;
+    height: 71.8%;
+  }
+}
+
+@media(min-width: 425px) and (max-width: 767px){
+  #searchBar{
+    display: none;
+  }
+
+  #editMenu{
+    padding: 4rem 0;
+  }
+
+  .inputField{
+    max-width: 16rem !important;
+  }
+
+  #messageBox{
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,103 @@
+<% content_for :title, "Edit Profile • Instagram" %>
+<%= render "devise/shared/error_messages", resource: resource %>
+<section class="py-10 flex items-center justify-center pt-24 flex-col" id="editMenu">
+  <div class="flex xl:w-3/5 lg:w-4/5 md:2/5 sm:1/6 bg-white border border-gray-300 h-auto">
+    <div class="xl:block lg:block md:block sm:hidden border-r border-gray-300">
+      <ul class="list-none w-52">
+        <li class="border-l-2 border-black hover:bg-gray-50 py-3 cursor-pointer">
+          <p class="px-4 font-medium">Edit Profile</p>
+        </li>
+      </ul>
+    </div>
+    <div class="py-6 w-full">
+      <div class="pl-32 pb-12 flex py-2 items-center">
+        <% if current_user.url != nil %>
+          <%= image_tag current_user.url, class: "w-10 rounded-full" %>
+        <% else %>
+          <%= image_tag current_user.gravatar_url, class: "w-10 rounded-full" %>
+        <% end %>
+        <p class="text-xl pl-8"><%= @user.username %></p>
+      </div>
+      <div class="py-2">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, autofocus: false) do |f| %>
+
+          <div class="flex pb-8 ">
+            <aside class="w-1/4 px-8 text-right">
+              <%= f.label "Name", class: "text-base font-medium" %>
+            </aside>
+            <div>
+              <%= f.text_field :full_name, autofocus: true, class: "inputField py-0.5 px-2 border border-gray-300 rounded w-80 max-w-xs focus:ring-2 focus:ring-black" %>
+             <p class="text-xs text-gray-400 pt-6 w-80 max-w-xs">Help people discover your account by using the name you're known by: either your full name, nickname, or business name.</p>
+            </div>
+          </div>
+
+          <div class="flex pb-8">
+            <aside class="w-1/4 px-8 text-right">
+              <%= f.label :username, class: "text-base font-medium " %>
+            </aside>
+            <div>
+              <%= f.text_field :username, autofocus: true, class: "inputField py-0.5 px-2 border border-gray-300 rounded focus:ring-2 focus:ring-black w-80 max-w-xs" %>
+            </div>
+          </div>
+
+          <div class="flex pb-8">
+            <aside class="w-1/4 px-8 text-right">
+              <%= f.label "Bio", class: "text-base font-medium" %>
+            </aside>
+            <div>
+              <%= f.text_area :about, autofocus: true, class: "inputField py-0.5 px-2 border border-gray-300 rounded focus:ring-2 focus:ring-black w-80 max-w-xs", rows: 3%>
+              <p class="text-sm font-medium text-gray-500 pt-6">Personal Information</p>
+              <p class="text-xs text-gray-400 pt-2 w-80 max-w-xs">
+                Provide your personal information, even if the account is used for a business, a pet or something else. This won't be a part of your public profile.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex pb-8">
+            <aside class="w-1/4 px-8 text-right">
+              <%= f.label :email, class: "text-base font-medium" %>
+            </aside>
+            <div>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "inputField py-0.5 px-2 border border-gray-300 rounded focus:ring-2 focus:ring-black w-80 max-w-xs" %>
+            </div>
+          </div>
+
+          <div class="flex pb-8">
+            <aside class="w-1/4 px-8 text-right">
+              <%= f.label :password, class: "text-base font-medium" %>
+            </aside>
+            <div>
+              <%= f.password_field :password, autocomplete: "new-password", class: "inputField py-0.5 px-2 border border-gray-300 rounded focus:ring-2 focus:ring-black w-80 max-w-xs" %>
+              <p class="text-xs text-gray-400 pt-4">Leave blank if you don't want to change it.</p>
+            </div>
+          </div>
+
+          <div class="flex pb-8">
+            <aside class="w-1/4 px-8 text-right">
+              <%= f.label "Confirm password", class: "text-base font-medium" %>
+            </aside>
+            <div>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "inputField py-0.5 px-2 border border-gray-300 rounded focus:ring-2 focus:ring-black w-80 max-w-xs" %>
+            </div>
+          </div>
+
+          <div class="flex pb-12">
+            <aside class="w-1/4 px-8 text-right">
+              <%= f.label :current_password, class: "text-base font-medium" %>
+            </aside>
+            <div>
+              <%= f.password_field :current_password, autocomplete: "current-password", class: "inputField py-0.5 px-2 border border-gray-300 rounded focus:ring-2 focus:ring-black w-80 max-w-xs" %>
+              <p class="text-xs text-gray-400 pt-4">We need your current password to confirm your changes.</p>
+            </div>
+          </div>
+
+          <div class="flex xl:pl-48 lg:pl-44 md:pl-40 sm:pl-20 items-center">
+            <%= f.submit "Update", class: "py-1.5 px-4 rounded text-center text-sm bg-blue-400 font-bold text-white cursor-pointer" %>
+        <% end %>
+          <p><%= button_to "Disable my account", registration_path(resource_name), data: { confirm: "Are you sure, your account will be deleted?" }, method: :delete, class: "text-blue-400 ml-20 bg-white cursor-pointer font-medium" %></p>
+          </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'layouts/footer' %>
+</section>
