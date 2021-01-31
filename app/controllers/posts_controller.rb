@@ -23,15 +23,18 @@ class PostsController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
-    if @post.update(post_params)
-      flash[:notice] = "Post was updated successfully"
-      redirect_to home_path
-    else
-      flash[:alert] = "There was an error in udpating posts"
-      render edit
+    respond_to do |format|
+      if @post.update(post_params)
+        format.html { redirect_to user_post_path(@user, @post), notice: "Post was successfully updated."}
+      else
+        format.html { redirect_to user_post_path(@user, @post), alert: "Please provide value for fields." }
+      end
     end
   end
 
@@ -40,7 +43,8 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to home_path
+    flash[:alert] = "Post was removed successfully."
+    redirect_to profile_path
   end
 
   private

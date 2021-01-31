@@ -25,7 +25,7 @@
         </div>
 
         <div class="flex justify-center">
-          <%= f.submit "Create post", class: "py-1.5 px-4 rounded text-center text-sm bg-blue-400 font-bold text-white cursor-pointer" %>
+          <%= f.submit @post.persisted? ? "Edit post" : "Create post", class: "py-1.5 px-4 rounded text-center text-sm bg-blue-400 font-bold text-white cursor-pointer" %>
         </div>
 
       <% end %>
