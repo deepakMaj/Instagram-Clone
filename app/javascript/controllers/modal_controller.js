@@ -4,7 +4,6 @@ export default class extends Controller {
 
   toggleModal() {
     $("#modal-open").hide();
-    $("#modal-open").addClass('hidden');
   }
 
   openModal() {
@@ -12,6 +11,10 @@ export default class extends Controller {
     $("#modal-open").show();
     $("#modal-open").addClass("modalAnimation");
     $("#modal-open").css('display', 'flex');
+    $("#modal-more").hide();
+  }
+
+  closeModal(){
     $("#modal-more").hide();
   }
 

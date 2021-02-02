@@ -77,12 +77,13 @@ textarea::-webkit-scrollbar-thumb{
 }
 
 // Media Queries
-@media(min-width: 1023px) and (max-width: 1339px){
+@media(min-width: 1023px) and (max-width: 1439px){
   .mobile{
     width: 46%;
   }
 
   .mobile-view {
+    top: 15%;
     left: 32%;
     height: 71.8%;
   }

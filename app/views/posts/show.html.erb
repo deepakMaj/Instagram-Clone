@@ -1,9 +1,9 @@
 <section data-controller="modal" class="pt-24 mt-1 xl:px-20 lg:px-20 md:px-20 sm:px-4 flex justify-center items-center flex-col">
-  <div class="flex xl:flex-row lg:flex-row md:flex-col sm:flex-col xl:w-4/6 lg:w-3/4 md:w-full sm:w-full bg-white border border-gray-300" id="postCover">
-    <div class="xl:max-w-3xl lg:max-w-sm md:w-auto sm:w-auto w-screen h-full bg-gray-200">
+  <div class="flex xl:flex-row lg:flex-row md:flex-col sm:flex-col xl:max-w-4xl lg:max-w-3xl md:max-w-4xl sm:max-w-5xl bg-white border border-gray-300" id="postCover">
+    <div class="xl:max-w-xl lg:max-w-md md:w-auto sm:w-auto w-screen h-full bg-gray-200">
       <%= image_tag @post.post_url, alt: "", class: "w-full h-full object-cover" %>
     </div>
-    <div class="w-full">
+    <div class="w-auto">
       <div class="py-4 px-4 w-full flex justify-between items-center">
         <div class="flex justify-between items-center">
           <div class="mr-4">
@@ -32,7 +32,7 @@
         </div>
         <div class="flex flex-wrap">
           <div>
-            <p class="text-sm font-medium text-gray-800"><%= @user.username %></p>
+            <p class="text-sm font-medium text-gray-800 mr-2"><%= @user.username %></p>
           </div>
           <div>
             <p class="text-sm font-extralight text-gray-600"><%= @post.desc %></p>
@@ -78,8 +78,8 @@
         <div class="flex justify-center py-3 hover:bg-gray-50">
           <%= link_to "Delete Post", [@user, @post], method: :delete, data: { confirm: 'Are you sure the post will be deleted permanently?' }, class: "text-base font-extralight text-gray-800" %>
         </div>
-        <div class="flex justify-center py-3 hover:bg-gray-50">
-          <p id="toggleModal" class="text-base font-extralight text-gray-800 cursor-pointer">Cancel</p>
+        <div id="closeModal" class="flex justify-center py-3 hover:bg-gray-50" data-action="click->modal#closeModal">
+          <p class="text-base font-extralight text-gray-800 cursor-pointer">Cancel</p>
         </div>
       </div>
     </div>
