@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.7'
 # Gravatar
 gem 'gravtastic'
 # Omniauth
-gem 'omniauth'
+gem "omniauth", "~> 1.9.1"
 # Facebook Auth
 gem 'omniauth-facebook'
 # Use Active Storage variant

@@ -237,7 +237,7 @@ DEPENDENCIES
   figaro
   gravtastic
   jbuilder (~> 2.7)
-  omniauth
+  omniauth (~> 1.9.1)
   omniauth-facebook
   pg
   puma (~> 4.1)

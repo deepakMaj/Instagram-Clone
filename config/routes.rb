@@ -12,8 +12,13 @@ Rails.application.routes.draw do
     get 'sign_up', to: 'devise/registrations#new'
   end
 
+  resources :users, path: '/', param: :username, only: [:show] do
+    post :follow, to: 'users/follows#create', as: :follow
+    delete :follow, to: 'users/follows#delete', as: :unfollow
+  end
+
   resources :users do
-    resources :posts
+    resources :posts, except: [:index]
   end
 
 end
