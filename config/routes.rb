@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :users, path: '/', param: :username, only: [:show] do
     post :follow, to: 'users/follows#create', as: :follow
-    delete :follow, to: 'users/follows#delete', as: :unfollow
+    delete :follow, to: 'users/follows#destroy', as: :unfollow
   end
 
   resources :users do

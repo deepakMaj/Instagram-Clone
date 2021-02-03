@@ -8,15 +8,22 @@
         <%= image_tag @user.gravatar_url(size: 240), class: "rounded-full xl:w-40 lg:w-40 md:w-40 sm:w-20" %>
       <% end %>
     </div>
-    <div>
+    <div class="flex flex-col">
       <div class="xl:flex lg:flex md:flex sm:block">
         <p class="text-3xl text-gray-600 font-thin mr-6 xl:mt-0 lg:mt-0 md:mt-0 sm:mb-3"><%= @user.username %></p>
         <%= link_to "Edit Profile", edit_user_registration_path, class: "border border-gray-300 px-3 py-1 w-auto sm:w-full h-8 rounded text-sm font-medium" %>
       </div>
+      <%= render 'users/follow_btn', user: @user %>
       <div class="flex py-4 w-9/12 sm:w-full justify-between">
         <span class="flex font-medium"><%= @user.posts.length %><p class="ml-1 text-gray-800 font-normal">posts</p></span>
-        <span class="flex font-medium">0<p class="ml-1 text-gray-800 font-normal">followers</p></span>
-        <span class="flex font-medium">0<p class="ml-1 text-gray-800 font-normal">following</p></span>
+        <span class="flex font-medium">
+          <span id="followers_count"><%= @user.followers_count %></span>
+          <p class="ml-1 text-gray-800 font-normal">followers</p>
+        </span>
+        <span class="flex font-medium">
+          <span id="followings_count"><%= @user.followers_count %></span>
+          <p class="ml-1 text-gray-800 font-normal">following</p>
+        </span>
       </div>
       <div>
         <p class="font-medium"><%= @user.full_name %></p>

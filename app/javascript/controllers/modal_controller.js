@@ -1,7 +1,21 @@
 import { Controller } from 'stimulus';
 
 export default class extends Controller {
+  
+  connect() {
+    $("#modal-open").on('click', (e) => {
+      if ($(e.target).closest('#modal-post').length === 0) {
+        $("#modal-open").hide();
+      }
+    });
 
+    $("#modal-more").on('click', (e) => {
+      if ($(e.target).closest('#modal-bodyMore').length === 0) {
+        $("#modal-more").hide();
+      }
+    });
+  }
+  
   toggleModal() {
     $("#modal-open").hide();
   }
@@ -24,20 +38,6 @@ export default class extends Controller {
     $("#modal-more").addClass("modalAnimation");
     $("#modal-more").css('display', 'flex');
 
-  }
-
-  connect() {
-    $("#modal-open").on('click', (e) => {
-      if ($(e.target).closest('#modal-post').length === 0) {
-        $("#modal-open").hide();
-      }
-    });
-
-    $("#modal-more").on('click', (e) => {
-      if ($(e.target).closest('#modal-bodyMore').length === 0) {
-        $("#modal-more").hide();
-      }
-    });
   }
 
 }

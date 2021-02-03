@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  
+
+  include Followable
+
   attr_accessor :login
 
   has_many :posts, dependent: :destroy

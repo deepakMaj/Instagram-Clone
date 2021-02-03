@@ -1,6 +1,8 @@
-module Followable extend ActiveSupport::Concern
+module Followable 
+    extend ActiveSupport::Concern
     
-    include do
+    included do
+        # Self Join -> 1. follower_relationships 2. following_relationships
         # User has many followers through table follower_relationships via following_id of the other users.
         has_many :follower_relationships, class_name: "Follow", foreign_key: :following_id
         has_many :followers, through: :follower_relationships, source: :follower
@@ -18,7 +20,7 @@ module Followable extend ActiveSupport::Concern
         following_relationships.find_by(following_id: user_id).destroy
     end
 
-    def isFollowing?(user_id)
+    def is_following?(user_id)
         relationship = Follow.find_by(follower_id: id, following_id: user_id)
         return true if relationship
     end

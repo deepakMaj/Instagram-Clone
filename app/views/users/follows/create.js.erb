@@ -1,0 +1,4 @@
+var followBtn = '<%= j render "users/follow_btn", user: @user %>';
+$("follow_btn").innerHTML = followBtn;
+$("#followers_count").innerHTML = '<%= @user.followers_count %>';
+$("#followings_count").innerHTML = '<%= @user.followings_count %>';

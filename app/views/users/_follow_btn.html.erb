@@ -1,0 +1,13 @@
+<div id="follow_btn">
+    <% if current_user.is_following?(user) %>
+        <%= link_to user_unfollow_path(user.username), method: :delete,
+            remote: true do %>
+            <button class="py-0.5 px-3 bg-blue-400 text-sm text-white font-medium rounded">Unfollow</button>
+        <% end %>
+    <% else %>
+        <%= link_to user_follow_path(user.username), method: :post,
+            remote: true do %>
+            <button class="py-0.5 px-3 bg-blue-400 text-white text-sm font-medium rounded">Follow</button>
+        <% end %>
+    <% end %>
+</div>

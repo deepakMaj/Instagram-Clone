@@ -3,6 +3,7 @@ class Users::FollowsController < ApplicationController
 
     def create
         if current_user.follow(@user.id)
+            @user.reload
             respond_to do |format|
                 format.html { redirect_to @user }
                 format.js
@@ -12,6 +13,7 @@ class Users::FollowsController < ApplicationController
 
     def destroy
         if current_user.unfollow(@user.id)
+            @user.reload
             respond_to do |format|
                 format.html { redirect_to @user }
                 format.js { render action: :create }
