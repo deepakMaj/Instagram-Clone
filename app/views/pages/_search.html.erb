@@ -1,0 +1,19 @@
+<div id="searchInput" class="flex items-center w-56 hidden">
+    <%= form_tag(search_path, method: :get, remote: true, autocomplete: "off") do |f| %>
+        <%= button_tag do %>
+        <i class="fa fa-search pl-2 pr-2 text-gray-400 text-xs"></i>
+        <% end %>
+        <%= text_field_tag :query, params[:query], placeholder: "Search", class: "text-gray-500 pr-2 text-sm bg-gray-50" %>
+        <i data-action="click->navbar#closeSearch" class="fa fa-times-circle py-1 pl-1 text-gray-400 cursor-pointer"></i>
+    <% end %>
+</div>
+<div id="searchLayer" class="flex justify-center cursor-text w-56" data-action="click->navbar#openSearch">
+    <i class="fa fa-search py-1 text-gray-400 text-xs"></i>
+    <p class="text-gray-400 py-0.5 pl-2 text-sm">Search</p>
+</div>
+<div class="absolute hidden top-3" id="searchBox">
+    <div id="notch" class="absolute bg-white w-4 h-4 transform rotate-45"></div>
+    <div class="relative w-80 rounded bg-white shadow-xl overflow-y-auto">
+        <ul id="searchList" class="grid divide-y divide-gray-300"></ul>
+    </div>
+</div>

@@ -2,6 +2,10 @@ class User < ApplicationRecord
 
   include Followable
 
+  def to_param   
+    username 
+  end
+
   attr_accessor :login
 
   has_many :posts, dependent: :destroy

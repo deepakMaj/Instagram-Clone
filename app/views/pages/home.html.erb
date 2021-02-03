@@ -13,7 +13,9 @@
                 <% end %>
               </div>
               <div class="flex justify-between w-full">
-                <p class="text-sm font-medium text-gray-800"><%= user.username %></p>
+                <%= link_to profile_path(user.username) do %>
+                  <p class="text-sm font-medium text-gray-800"><%= user.username %></p>
+                <% end %>
                 <% if current_user.id == user.id %>
                   <p data-action="click->modal#openModalMore">
                     <%= image_tag "menu", alt: "", class: "w-4 cursor-pointer" %>

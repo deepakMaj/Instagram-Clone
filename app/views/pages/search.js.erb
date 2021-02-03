@@ -1,0 +1,6 @@
+$("#searchList").html("");
+<% @user.each do |user| %>
+    $("<li>").html('<%= link_to profile_path(user) do %><div class="mr-3 mb-2 hover:bg-gray-50"><% if user.url != nil %><%= image_tag user.url, class: "rounded-full w-6" %><% else %><%= image_tag user.gravatar_url(size: 240), class: "rounded-full w-6" %><% end %></div><div><p class="text-sm font-medium text-gray-800"><%= link_to user.username, profile_path(user.username) %></p><p class="text-sm font-extralight text-gray-600"><%= user.full_name %></p></div><% end %>').addClass("flex py-2 px-3 items-center").appendTo("#searchList");
+<% end %>
+$("#query").val("");
+$("#searchBox").removeClass("hidden");
