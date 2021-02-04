@@ -105,6 +105,13 @@ textarea::-webkit-scrollbar-thumb{
   #messageBox{
     width: 100% !important;
   }
+  
+}
+
+@media(min-width: 320px) and (max-width: 1023px){
+  #postCover{
+    height: 35rem;
+  }
 }
 
 @media(min-width: 320px) and (max-width: 424px){
