@@ -32,7 +32,6 @@ gem "omniauth", "~> 1.9.1"
 # Facebook Auth
 gem 'omniauth-facebook'
 # Use Active Storage variant
-gem 'sqlite3', '~> 1.4.2'
 # gem 'image_processing', '~> 1.2'
 # Figaro
 gem 'figaro'
