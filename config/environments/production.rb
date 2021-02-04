@@ -70,7 +70,7 @@ Rails.application.configure do
     password:       ENV['SENDMAIL_PASSWORD'],
     address:       'smtp.gmail.com',
     port:          '587',
-    domain: "instaagram-clone-2020.herokuapp.com"
+    domain: "instaagram-clone-2020.herokuapp.com",
     authentication: :plain,
     enable_starttls_auto: true
   }
