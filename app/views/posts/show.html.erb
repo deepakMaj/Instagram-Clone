@@ -51,7 +51,7 @@
         <p class="text-gray-600 mr-2">More posts from</p>
         <p class="text-gray-800"><%= @user.username %></p>
       </div>
-      <div class="flex flex-wrap mt-6">
+      <div class="flex flex-wrap justify-center mt-6">
         <% @user.posts.each do |post| %>
           <% if @post.post_url != post.post_url %>
             <div class="postData xl:mr-8 lg:mr-6 md:mr-4 sm:mr-1 xl:mb-6 lg:mb-6 md:mb-6 sm:mb-1">

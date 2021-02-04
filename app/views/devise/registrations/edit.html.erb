@@ -1,7 +1,7 @@
 <% content_for :title, "Edit Profile • Instagram" %>
 <%= render "devise/shared/error_messages", resource: resource %>
 <section class="py-10 flex items-center justify-center pt-24 flex-col" id="editMenu">
-  <div class="flex xl:w-3/5 lg:w-4/5 md:2/5 sm:1/6 bg-white border border-gray-300 h-auto">
+  <div class="flex xl:w-3/5 lg:w-4/5 md:w-auto sm:w-full bg-white border border-gray-300 h-auto">
     <div class="xl:block lg:block md:block sm:hidden border-r border-gray-300">
       <ul class="list-none w-52">
         <li class="border-l-2 border-black hover:bg-gray-50 py-3 cursor-pointer">
@@ -22,7 +22,7 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, autofocus: false) do |f| %>
 
           <div class="flex pb-8 ">
-            <aside class="w-1/4 px-8 text-right">
+            <aside class="w-1/4 px-4 text-right">
               <%= f.label "Name", class: "text-base font-medium" %>
             </aside>
             <div>
@@ -32,7 +32,7 @@
           </div>
 
           <div class="flex pb-8">
-            <aside class="w-1/4 px-8 text-right">
+            <aside class="w-1/4 px-4 text-right">
               <%= f.label :username, class: "text-base font-medium " %>
             </aside>
             <div>
@@ -41,7 +41,7 @@
           </div>
 
           <div class="flex pb-8">
-            <aside class="w-1/4 px-8 text-right">
+            <aside class="w-1/4 px-4 text-right">
               <%= f.label "Bio", class: "text-base font-medium" %>
             </aside>
             <div>
@@ -54,7 +54,7 @@
           </div>
 
           <div class="flex pb-8">
-            <aside class="w-1/4 px-8 text-right">
+            <aside class="w-1/4 px-4 text-right">
               <%= f.label :email, class: "text-base font-medium" %>
             </aside>
             <div>
@@ -63,7 +63,7 @@
           </div>
 
           <div class="flex pb-8">
-            <aside class="w-1/4 px-8 text-right">
+            <aside class="w-1/4 px-4 text-right">
               <%= f.label :password, class: "text-base font-medium" %>
             </aside>
             <div>
@@ -73,7 +73,7 @@
           </div>
 
           <div class="flex pb-8">
-            <aside class="w-1/4 px-8 text-right">
+            <aside class="w-1/4 px-4 text-right">
               <%= f.label "Confirm password", class: "text-base font-medium" %>
             </aside>
             <div>
@@ -82,7 +82,7 @@
           </div>
 
           <div class="flex pb-12">
-            <aside class="w-1/4 px-8 text-right">
+            <aside class="w-1/4 px-4 text-right">
               <%= f.label :current_password, class: "text-base font-medium" %>
             </aside>
             <div>

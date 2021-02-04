@@ -89,7 +89,7 @@ textarea::-webkit-scrollbar-thumb{
   }
 }
 
-@media(min-width: 425px) and (max-width: 767px){
+@media(min-width: 320px) and (max-width: 767px){
   #searchBar{
     display: none;
   }
@@ -105,4 +105,15 @@ textarea::-webkit-scrollbar-thumb{
   #messageBox{
     width: 100% !important;
   }
+}
+
+@media(min-width: 320px) and (max-width: 424px){
+  .postImage{
+    width: 10rem !important;
+    height: 10rem !important;
+  }
+
+  .postData:nth-child(3n){
+    margin-right: 0.25rem;
+   }
 }
