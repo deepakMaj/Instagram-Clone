@@ -17,8 +17,8 @@
           <%= render 'users/follow_btn', user: @user %>
       <% end %>
       <div class="flex py-4 w-9/12 sm:w-full justify-between">
-        <span class="flex font-medium"><%= @user.posts.length %><p class="ml-1 text-gray-800 font-normal">posts</p></span>
-        <span class="flex font-medium">
+        <span class="flex font-medium mr-1"><%= @user.posts.length %><p class="ml-1 text-gray-800 font-normal">posts</p></span>
+        <span class="flex font-medium mr-1">
           <span id="followers_count"><%= @user.followers_count %></span>
           <p class="ml-1 text-gray-800 font-normal">followers</p>
         </span>
