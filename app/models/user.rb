@@ -30,13 +30,19 @@ class User < ApplicationRecord
   end
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
-      user.full_name = auth.info.name
-      user.username = auth.extra.raw_info.username
-      user.url = auth.info.image 
-      user.skip_confirmation!
+    if self.where(email: auth.info.email).exists?
+      user = self.where(email: auth.info.email).first
+      user.provider = auth.provider
+      user.uid = auth.uid
+    else
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0, 20]
+        user.full_name = auth.info.name
+        user.username = auth.extra.raw_info.username
+        user.url = auth.info.image 
+        user.skip_confirmation!
+      end
     end
   end
 
