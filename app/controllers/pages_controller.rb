@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:home, :profile]
 
   def home
+    @users = User.includes(:posts)
   end
   
   def profile

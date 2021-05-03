@@ -36,7 +36,9 @@
           <p><%= @user.about %></p>
         </div>
       <% else %>
-        <%= link_to "Add bio", edit_user_registration_path, class: "text-blue-500 font-medium my-2" %>
+        <% if current_user.id == @user.id %>
+          <%= link_to "Add bio", edit_user_registration_path, class: "text-blue-500 font-medium my-2" %>
+        <% end %>
       <% end %>
     </div>
   </div>
