@@ -32,7 +32,8 @@ export default class extends Controller {
     $("#modal-more").hide();
   }
 
-  openModalMore() {
+  openModalMore(username, postId) {
+    console.log(username, postId);
     // For more
     $("#modal-more").show();
     $("#modal-more").addClass("modalAnimation");

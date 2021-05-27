@@ -11,7 +11,9 @@
     <div class="flex flex-col">
       <div class="xl:flex lg:flex md:flex sm:block">
         <p class="text-3xl text-gray-600 font-thin mr-6 xl:mt-0 lg:mt-0 md:mt-0 sm:mb-3"><%= @user.username %></p>
-        <%= link_to "Edit Profile", edit_user_registration_path, class: "border border-gray-300 px-3 py-1 w-auto sm:w-full h-8 rounded text-sm font-medium" %>
+        <% if current_user.username == @user.username %>
+          <%= link_to "Edit Profile", edit_user_registration_path, class: "border border-gray-300 px-3 py-1 w-auto sm:w-full h-8 rounded text-sm font-medium" %>
+        <% end %>
       </div>
       <% if current_user.username != @user.username %>
           <%= render 'users/follow_btn', user: @user %>
