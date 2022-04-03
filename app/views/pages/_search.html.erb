@@ -1,5 +1,5 @@
 <div id="searchInput" class="flex items-center w-56 hidden">
-    <%= form_tag(search_path, method: :get, remote: true, autocomplete: "off") do |f| %>
+    <%= form_tag(search_path, method: :get, remote: true, autocomplete: "off", class: "flex") do |f| %>
         <%= button_tag do %>
         <i class="fa fa-search pl-2 pr-2 text-gray-400 text-xs"></i>
         <% end %>
